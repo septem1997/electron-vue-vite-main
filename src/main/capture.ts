@@ -9,13 +9,14 @@ export function registerCapture() {
     if (app.isPackaged) {
         // captureWindow.loadFile(path.join(__dirname, '../render/index.html'))
     } else {
-
+        captureWindow = new BrowserWindow({
+            show:false
+        })
+        captureWindow?.loadURL(`http://localhost:${process.env.PORT}/capture`)
+        captureWindow?.webContents.openDevTools()
     }
     ipcMain.on(START_CAPTURE, () => {
-        console.log('handle')
-        captureWindow = new BrowserWindow()
-        captureWindow?.maximize()
-        captureWindow?.webContents.openDevTools()
-        captureWindow?.loadURL(`http://localhost:${process.env.PORT}/capture`)
+        captureWindow?.setFullScreen(true)
+        captureWindow?.show()
     })
 }

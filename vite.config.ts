@@ -7,7 +7,7 @@ import pkg from './package.json'
 export default defineConfig(env => {
   return {
     plugins: [
-      vue(),
+      vue()
     ],
     root: join(__dirname, 'src/render'),
     base: './',

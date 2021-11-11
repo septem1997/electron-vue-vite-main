@@ -1,18 +1,23 @@
 <template>
-  <div class="logo-box">
-    <img style="height:200px;" src="./assets/electron.png" alt="Electron logo">
-    <img alt="Vue logo" src="./assets/logo.png" />
-  </div>
-  <HelloWorld msg="Electron@15、Vue@3、Vite@2" />
+  <router-view></router-view>
 </template>
 
-<script>
+<script lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
-
+import { useRouter } from 'vue-router'
 export default {
   name: 'App',
   components: {
     HelloWorld
+  },
+  setup(){
+    const router = useRouter()
+    const jump = ()=>{
+      router.push('/test')
+    }
+    return{
+      jump
+    }
   }
 }
 </script>

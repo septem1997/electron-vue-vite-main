@@ -13,4 +13,5 @@ interface Window {
   fs: typeof import('fs')
   /** Electron ipcRenderer */
   ipcRenderer: import('electron').IpcRenderer
+  desktopCapturer:import('electron').DesktopCapturer
 }

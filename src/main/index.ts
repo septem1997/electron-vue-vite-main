@@ -14,7 +14,7 @@ function bootstrap() {
   if (app.isPackaged) {
     win.loadFile(path.join(__dirname, '../render/index.html'))
   } else {
-    win.maximize()
+    // win.maximize()
     win.webContents.openDevTools()
     win.loadURL(`http://localhost:${process.env.PORT}/test`)
   }

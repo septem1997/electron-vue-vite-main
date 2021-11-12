@@ -16,3 +16,6 @@ export const START_CAPTURE = 'start-capture'
 
 /** 捕获屏幕 */
 export const CAPTURE_SCREEN = 'capture-screen'
+
+/** 显示截图窗口  */
+export const SHOW_CAPTURE_WINDOW = 'show-capture-window'

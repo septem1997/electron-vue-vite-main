@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import {CAPTURE_SCREEN} from "@/common/constant/event";
+import {CAPTURE_SCREEN, SHOW_CAPTURE_WINDOW} from "@/common/constant/event";
 import {ref} from 'vue'
 export default {
   name: "capture",
@@ -29,6 +29,7 @@ export default {
             return
           }
           loaded = true
+          video.pause()
           // Set video ORIGINAL height (screenshot)
           video.style.height = video.videoHeight + 'px' // videoHeight
           video.style.width = video.videoWidth + 'px' // videoWidth
@@ -51,12 +52,13 @@ export default {
           // Remove hidden video tag
           video.remove()
           try {
-            stream.getTracks()[0].stop()
+            // stream.getTracks()[0].stop()
           } catch (e) {
             // nothing
           }
         }
         video.srcObject = stream
+        video.play()
         document.body.appendChild(video)
       }
 
@@ -83,8 +85,8 @@ export default {
     window.ipcRenderer.on(CAPTURE_SCREEN,()=>{
       console.log('get screen')
       getScreen((base64)=>{
-        console.log('base64',base64)
         src.value = base64
+        window.ipcRenderer.send(SHOW_CAPTURE_WINDOW)
       })
     })
     return {src}

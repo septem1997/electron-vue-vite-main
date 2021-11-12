@@ -1,6 +1,6 @@
 import {app, BrowserWindow, ipcMain} from 'electron'
 import {
-    CAPTURE_SCREEN,
+    CAPTURE_SCREEN, SHOW_CAPTURE_WINDOW,
     START_CAPTURE
 } from '@/common/constant/event'
 import path from "path";
@@ -20,8 +20,10 @@ export function registerCapture() {
         captureWindow?.webContents.openDevTools()
     }
     ipcMain.on(START_CAPTURE, () => {
-        // captureWindow?.setFullScreen(true)
-        captureWindow?.show()
         captureWindow?.webContents.send(CAPTURE_SCREEN)
+    })
+    ipcMain.on(SHOW_CAPTURE_WINDOW,()=>{
+        captureWindow?.setFullScreen(true)
+        captureWindow?.show()
     })
 }

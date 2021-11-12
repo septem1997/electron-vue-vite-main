@@ -9,9 +9,16 @@ domReady().then(() => {
     port: process.env.PORT_WS as string, // process.env.npm_package_env_PORT_WS
   })
 })
-
-
 // --------- Expose some API to Renderer process. ---------
 contextBridge.exposeInMainWorld('fs', fs)
-contextBridge.exposeInMainWorld('ipcRenderer', ipcRenderer)
+contextBridge.exposeInMainWorld('ipcRenderer', {
+  send:(channel:string, data:any)=>{
+    // todo 验证安全性
+    ipcRenderer.send(channel,data)
+  },
+  on:(channel:string, data:any)=>{
+    // todo 验证安全性
+    ipcRenderer.on(channel,data)
+  }
+})
 contextBridge.exposeInMainWorld('desktopCapturer',desktopCapturer)

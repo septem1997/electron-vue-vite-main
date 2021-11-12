@@ -13,3 +13,6 @@ export const TOGGLE_DEVTOOLS = 'toggle-devtools'
 
 /*开始截图*/
 export const START_CAPTURE = 'start-capture'
+
+/** 捕获屏幕 */
+export const CAPTURE_SCREEN = 'capture-screen'

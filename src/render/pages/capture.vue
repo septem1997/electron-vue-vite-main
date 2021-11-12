@@ -10,6 +10,7 @@ export default {
   setup(){
     const src = ref('')
     window.ipcRenderer.on(SetCaptureImg,(e, base64Data)=>{
+      console.log('receive base64')
       src.value=base64Data
       nextTick(()=>{
         window.ipcRenderer.send(SHOW_CAPTURE_WINDOW)

@@ -23,32 +23,6 @@ export default {
     }
     const startCapture = async () => {
       showDropdown.value = false
-      const handleStream = (stream: MediaStream) => {
-        let video = document.createElement('video')
-        video.style.cssText = 'position:absolute;top:-10000px;left:-10000px;'
-        let loaded = false
-        video.onloadedmetadata = () => {
-          if (loaded) {
-            return
-          }
-          loaded = true
-          video.pause()
-          video.style.height = video.videoHeight + 'px' // videoHeight
-          video.style.width = video.videoWidth + 'px' // videoWidth
-          let canvas = document.createElement('canvas')
-          canvas.width = video.videoWidth
-          canvas.height = video.videoHeight
-          let ctx = canvas.getContext('2d')
-          ctx?.drawImage(video, 0, 0, canvas.width, canvas.height)
-          window.ipcRenderer.send(START_CAPTURE, canvas.toDataURL('image/png'))
-          video.remove()
-        }
-        video.srcObject = stream
-        video.play()
-        document.body.appendChild(video)
-      }
-
-
       const sources = await window.desktopCapturer.getSources({
         types: ['screen']
       })
@@ -65,7 +39,28 @@ export default {
           },
         },
       })
-      handleStream(stream)
+      let video = document.createElement('video')
+      video.style.cssText = 'position:absolute;top:-10000px;left:-10000px;'
+      let loaded = false
+      video.onloadedmetadata = () => {
+        if (loaded) {
+          return
+        }
+        loaded = true
+        video.pause()
+        video.style.height = video.videoHeight + 'px' // videoHeight
+        video.style.width = video.videoWidth + 'px' // videoWidth
+        let canvas = document.createElement('canvas')
+        canvas.width = video.videoWidth
+        canvas.height = video.videoHeight
+        let ctx = canvas.getContext('2d')
+        ctx?.drawImage(video, 0, 0, canvas.width, canvas.height)
+        window.ipcRenderer.send(START_CAPTURE, canvas.toDataURL('image/png'))
+        video.remove()
+      }
+      video.srcObject = stream
+      video.play()
+      document.body.appendChild(video)
     }
     const handleSelect = () => {
 

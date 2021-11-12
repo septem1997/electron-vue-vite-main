@@ -20,7 +20,7 @@ export function registerCapture(mainWindow:BrowserWindow) {
         captureWindow?.webContents.openDevTools()
     }
     ipcMain.on(START_CAPTURE, (e,base64Data) => {
-        console.log('SetCaptureImg')
+        console.log('Set Capture Img')
         captureWindow?.webContents.send(SetCaptureImg,base64Data)
     })
     ipcMain.on(SHOW_CAPTURE_WINDOW,()=>{

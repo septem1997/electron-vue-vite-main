@@ -8,7 +8,6 @@ import {
   LOGOUT,
   TOGGLE_DEVTOOLS,
 } from '@/common/constant/event'
-
 export function register(mainWindow: BrowserWindow) {
   ipcMain.handle(TOGGLE_DEVTOOLS, () => {
     mainWindow.webContents.toggleDevTools()

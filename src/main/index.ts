@@ -20,7 +20,7 @@ function bootstrap() {
   }
   // something init setup
   register(win)
-  registerCapture()
+  registerCapture(win)
 }
 
 app.whenReady().then(bootstrap)

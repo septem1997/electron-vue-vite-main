@@ -12,13 +12,9 @@ domReady().then(() => {
 // --------- Expose some API to Renderer process. ---------
 contextBridge.exposeInMainWorld('fs', fs)
 contextBridge.exposeInMainWorld('ipcRenderer', {
-  send:(channel:string, data:any)=>{
-    // todo 验证安全性
-    ipcRenderer.send(channel,data)
-  },
-  on:(channel:string, data:any)=>{
-    // todo 验证安全性
-    ipcRenderer.on(channel,data)
-  }
+  // todo 验证安全性
+  send:ipcRenderer.send,
+  on:ipcRenderer.on,
+  invoke:ipcRenderer.invoke
 })
 contextBridge.exposeInMainWorld('desktopCapturer',desktopCapturer)

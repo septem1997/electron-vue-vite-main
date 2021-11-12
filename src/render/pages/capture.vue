@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import {CAPTURE_SCREEN, SetCaptureImg, SHOW_CAPTURE_WINDOW, START_CAPTURE} from "@/common/constant/event";
+import { SetCaptureImg, SHOW_CAPTURE_WINDOW} from "@/common/constant/event";
 import {ref,nextTick} from 'vue'
 export default {
   name: "capture",

@@ -1,17 +1,26 @@
 <template>
   <n-dropdown @select="handleSelect" v-model:show="showDropdown" trigger="hover" :options="options">
-    <n-button @click="startCapture">截图</n-button>
+    <n-button @click="hideAndCapture">截图</n-button>
   </n-dropdown>
 </template>
 
 <script lang="ts">
-import {START_CAPTURE} from "@/common/constant/event";
+import {HIDE_MAIN_WINDOW, START_CAPTURE} from "@/common/constant/event";
 import {nextTick, ref} from 'vue'
 
 export default {
   name: "CaptureButton",
   setup() {
     const showDropdown = ref(false)
+    const hideAndCapture = ()=>{
+      hideMainWindow().then(()=>{
+        console.log('hide window')
+        startCapture()
+      })
+    }
+    const hideMainWindow  = ()=>{
+      return window.ipcRenderer.invoke(HIDE_MAIN_WINDOW)
+    }
     const startCapture = async () => {
       showDropdown.value = false
       const handleStream = (stream: MediaStream) => {
@@ -72,7 +81,9 @@ export default {
       showDropdown,
       startCapture,
       options,
-      handleSelect
+      handleSelect,
+      hideMainWindow,
+      hideAndCapture
     }
   }
 }

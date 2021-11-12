@@ -6,7 +6,7 @@ import {
 import path from "path";
 
 let captureWindow:null|BrowserWindow = null;
-export function registerCapture() {
+export function registerCapture(mainWindow:BrowserWindow) {
     if (app.isPackaged) {
         // captureWindow.loadFile(path.join(__dirname, '../render/index.html'))
     } else {
@@ -20,9 +20,11 @@ export function registerCapture() {
         captureWindow?.webContents.openDevTools()
     }
     ipcMain.on(START_CAPTURE, (e,base64Data) => {
+        console.log('SetCaptureImg')
         captureWindow?.webContents.send(SetCaptureImg,base64Data)
     })
     ipcMain.on(SHOW_CAPTURE_WINDOW,()=>{
+        console.log('SHOW CAPTURE WINDOW')
         captureWindow?.setFullScreen(true)
         captureWindow?.show()
     })

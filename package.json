@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "vue": "^3.2.11",
+    "vue-cropper": "^1.0.2",
     "vue-router": "4"
   },
   "devDependencies": {

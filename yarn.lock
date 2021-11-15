@@ -3009,6 +3009,11 @@ vooks@^0.2.10, vooks@^0.2.4:
   dependencies:
     evtd "^0.2.2"
 
+vue-cropper@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.npmmirror.com/vue-cropper/download/vue-cropper-1.0.2.tgz?cache=0&sync_timestamp=1636689108089&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fvue-cropper%2Fdownload%2Fvue-cropper-1.0.2.tgz#61eb2080cb654da2cdcd905c4c6885f87d7d3921"
+  integrity sha1-YesggMtlTaLNzZBcTGiF+H19OSE=
+
 vue-router@4:
   version "4.0.12"
   resolved "https://registry.npmmirror.com/vue-router/download/vue-router-4.0.12.tgz#8dc792cddf5bb1abcc3908f9064136de7e13c460"

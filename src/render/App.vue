@@ -3,21 +3,18 @@
 </template>
 
 <script lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import { useRouter } from 'vue-router'
+import { useRouter } from "vue-router";
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  name: "App",
+  components: {},
+  setup() {
+    const router = useRouter();
+    const jump = () => {
+      router.push("/test");
+    };
+    return {
+      jump,
+    };
   },
-  setup(){
-    const router = useRouter()
-    const jump = ()=>{
-      router.push('/test')
-    }
-    return{
-      jump
-    }
-  }
-}
+};
 </script>

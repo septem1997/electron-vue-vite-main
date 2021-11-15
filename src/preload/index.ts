@@ -16,7 +16,7 @@ contextBridge.exposeInMainWorld("fs", fs);
 contextBridge.exposeInMainWorld("ipcRenderer", {
   send: (channel: string, ...args: any[]) => {
     // todo 验证安全性
-    ipcRenderer.send(channel, args);
+    ipcRenderer.send(channel, ...args);
   },
   on: (
     channel: string,

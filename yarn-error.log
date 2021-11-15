@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn add vFonts --dev
+  /usr/local/bin/node /usr/local/bin/yarn add --dev eslint prettier eslint-config-prettier eslint-plugin-prettier eslint-plugin-vue @typescript-eslint/parser @typescr ipt-eslint/eslint-plugin
 
 PATH: 
   /home/septem1997/Code/electron-vue-vite-main/node_modules/.bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin:/usr/sbin:/snap/bin
@@ -8,30 +8,29 @@ Yarn version:
   1.22.10
 
 Node version: 
-  16.13.0
+  14.18.1
 
 Platform: 
   linux x64
 
 Trace: 
-  Error: https://registry.npm.taobao.org/vFonts: Not found
-      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66988:18)
+  Error: https://registry.npmmirror.com/@typescr: Request "https://registry.npmmirror.com/@typescr" returned a 405
+      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66997:18)
       at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140662:22)
-      at Request.emit (node:events:390:28)
+      at Request.emit (events.js:400:28)
       at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141634:10)
-      at Request.emit (node:events:390:28)
+      at Request.emit (events.js:400:28)
       at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141556:12)
-      at Object.onceWrapper (node:events:509:28)
-      at IncomingMessage.emit (node:events:402:35)
-      at endReadableNT (node:internal/streams/readable:1343:12)
-      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+      at Object.onceWrapper (events.js:519:28)
+      at IncomingMessage.emit (events.js:412:35)
+      at endReadableNT (internal/streams/readable.js:1334:12)
+      at processTicksAndRejections (internal/process/task_queues.js:82:21)
 
 npm manifest: 
   {
     "name": "electron-vue",
     "version": "0.0.1",
     "main": "dist/main/index.js",
-    "author": "草鞋没号 <308487730@qq.com>",
     "license": "MIT",
     "scripts": {
       "dev": "concurrently -n=R,P,M -c=green,yellow,blue \"npm run dev:render\" \"npm run dev:preload\" \"npm run dev:main\"",
@@ -45,7 +44,6 @@ npm manifest:
       "build": "rimraf dist && npm run build:render && npm run build:preload && npm run build:main && electron-builder"
     },
     "build": {
-      "appId": "308487730@qq.com",
       "asar": true,
       "directories": {
         "output": "release/${version}"
@@ -79,7 +77,9 @@ npm manifest:
       }
     },
     "dependencies": {
-      "vue": "^3.2.11"
+      "vue": "^3.2.11",
+      "vue-cropper": "^1.0.2",
+      "vue-router": "4"
     },
     "devDependencies": {
       "@rollup/plugin-alias": "^3.1.2",
@@ -102,6 +102,7 @@ npm manifest:
       "rimraf": "^3.0.2",
       "ts-node": "^10.2.1",
       "typescript": "^4.4.2",
+      "vfonts": "^0.1.0",
       "vite": "^2.5.6",
       "ws": "^8.2.3"
     },
@@ -572,6 +573,11 @@ Lockfile:
     dependencies:
       "@vue/compiler-dom" "3.2.11"
       "@vue/shared" "3.2.11"
+  
+  "@vue/devtools-api@^6.0.0-beta.18":
+    version "6.0.0-beta.20"
+    resolved "https://registry.npmmirror.com/@vue/devtools-api/download/@vue/devtools-api-6.0.0-beta.20.tgz?cache=0&sync_timestamp=1635944976169&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40vue%2Fdevtools-api%2Fdownload%2F%40vue%2Fdevtools-api-6.0.0-beta.20.tgz#b5405c9a84fb44687d05e7c4c7854b1639141106"
+    integrity sha1-tUBcmoT7RGh9BefEx4VLFjkUEQY=
   
   "@vue/reactivity@3.2.11":
     version "3.2.11"
@@ -3127,6 +3133,18 @@ Lockfile:
     integrity sha1-Jlb0wCV1jtl+3EqVhMnMFez/tws=
     dependencies:
       evtd "^0.2.2"
+  
+  vue-cropper@^1.0.2:
+    version "1.0.2"
+    resolved "https://registry.npmmirror.com/vue-cropper/download/vue-cropper-1.0.2.tgz?cache=0&sync_timestamp=1636689108089&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fvue-cropper%2Fdownload%2Fvue-cropper-1.0.2.tgz#61eb2080cb654da2cdcd905c4c6885f87d7d3921"
+    integrity sha1-YesggMtlTaLNzZBcTGiF+H19OSE=
+  
+  vue-router@4:
+    version "4.0.12"
+    resolved "https://registry.npmmirror.com/vue-router/download/vue-router-4.0.12.tgz#8dc792cddf5bb1abcc3908f9064136de7e13c460"
+    integrity sha1-jceSzd9bsavMOQj5BkE23n4TxGA=
+    dependencies:
+      "@vue/devtools-api" "^6.0.0-beta.18"
   
   vue@^3.2.11:
     version "3.2.11"

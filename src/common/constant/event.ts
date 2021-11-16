@@ -20,5 +20,8 @@ export const HIDE_MAIN_WINDOW = "hide-main-window";
 /** 显示截图窗口  */
 export const SHOW_CAPTURE_WINDOW = "show-capture-window";
 
+/** 隐藏截图窗口 */
+export const HIDE_CAPTURE_WINDOW = "hide-capture-window";
+
 /** 传递屏幕数据*/
 export const SetCaptureImg = "set-capture-img";

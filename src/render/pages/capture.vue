@@ -9,7 +9,7 @@
         background: 'white',
       }"
     >
-      <n-button>取消</n-button>
+      <n-button @click="hideCaptureWindow">取消</n-button>
       <n-button>完成</n-button>
     </div>
     <vueCropper
@@ -22,19 +22,17 @@
 </template>
 
 <script>
-import { SetCaptureImg, SHOW_CAPTURE_WINDOW } from "@/common/constant/event";
+import {
+  HIDE_CAPTURE_WINDOW,
+  SetCaptureImg,
+  SHOW_CAPTURE_WINDOW,
+} from "@/common/constant/event";
 import { ref, nextTick, reactive, computed } from "vue";
 export default {
   name: "CapturePage",
   setup() {
     const src = ref("");
     const cropper = ref(null);
-    const cropInfo = reactive({
-      width: 0,
-      height: 0,
-      x: -1,
-      y: -1,
-    });
     const toolPosition = reactive({
       x: 0,
       y: 0,
@@ -43,6 +41,11 @@ export default {
       const pos = document
         .getElementsByClassName("cropper-crop-box")[0]
         .style.transform.match(/[\d]+px/g);
+      toolPosition.x = parseFloat(pos[0]) + e.w;
+      toolPosition.y = parseFloat(pos[1]) + e.h;
+    };
+    const hideCaptureWindow = () => {
+      window.ipcRenderer.send(HIDE_CAPTURE_WINDOW);
     };
     window.ipcRenderer.on(SetCaptureImg, (e, base64Data) => {
       console.log("receive base64");
@@ -52,7 +55,7 @@ export default {
         cropper.value.startCrop();
       });
     });
-    return { src, cropper, toolPosition, cropChange };
+    return { src, cropper, toolPosition, cropChange, hideCaptureWindow };
   },
 };
 </script>

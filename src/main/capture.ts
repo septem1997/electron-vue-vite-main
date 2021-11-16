@@ -1,5 +1,6 @@
-import { app, BrowserWindow, ipcMain } from "electron";
+import { app, BrowserWindow, ipcMain, globalShortcut } from "electron";
 import {
+  HIDE_CAPTURE_WINDOW,
   SetCaptureImg,
   SHOW_CAPTURE_WINDOW,
   START_CAPTURE,
@@ -20,6 +21,15 @@ export function registerCapture(mainWindow: BrowserWindow) {
     captureWindow?.loadURL(`http://localhost:${process.env.PORT}/capture`);
     captureWindow?.webContents.openDevTools();
   }
+  ipcMain.on(HIDE_CAPTURE_WINDOW, () => {
+    captureWindow?.hide();
+  });
+  globalShortcut.register("Escape", () => {
+    if (captureWindow?.isVisible()) {
+      captureWindow?.hide();
+      mainWindow.show();
+    }
+  });
   ipcMain.on(START_CAPTURE, (e, base64Data) => {
     console.log("Set Capture Img");
     captureWindow?.webContents.send(SetCaptureImg, base64Data);

@@ -148,6 +148,44 @@
   resolved "https://registry.npmmirror.com/@humanwhocodes/object-schema/download/@humanwhocodes/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha1-tSBSnsIdjllFoYUd/Rwy6U45/0U=
 
+"@intlify/core-base@9.2.0-beta.19":
+  version "9.2.0-beta.19"
+  resolved "https://registry.npmmirror.com/@intlify/core-base/download/@intlify/core-base-9.2.0-beta.19.tgz#11c3ee2d32e1446698f8420a32f09f1b455d8936"
+  integrity sha512-MNtkhtyV0um+bUOCM0ZsSfm7IIIhE4E/bz/JU3DuRtg+HKYjVx4sLCi9eTHPkKMUVGVmceicZ2hysHcL/vQMtg==
+  dependencies:
+    "@intlify/devtools-if" "9.2.0-beta.19"
+    "@intlify/message-compiler" "9.2.0-beta.19"
+    "@intlify/shared" "9.2.0-beta.19"
+    "@intlify/vue-devtools" "9.2.0-beta.19"
+
+"@intlify/devtools-if@9.2.0-beta.19":
+  version "9.2.0-beta.19"
+  resolved "https://registry.npmmirror.com/@intlify/devtools-if/download/@intlify/devtools-if-9.2.0-beta.19.tgz#6d120c0c51895780ef6c2dd008c4a42e7be584fe"
+  integrity sha512-WFr8TIhCmymI/KflYwAGX5a8f1oPZ247Hi1/Y8UlzlIUsgVCOE8phzKqHrDGq/fm8+pyOmTrR+/hOga6gDHHoQ==
+  dependencies:
+    "@intlify/shared" "9.2.0-beta.19"
+
+"@intlify/message-compiler@9.2.0-beta.19":
+  version "9.2.0-beta.19"
+  resolved "https://registry.npmmirror.com/@intlify/message-compiler/download/@intlify/message-compiler-9.2.0-beta.19.tgz#56b82e1ca22342f53218f5e6bbde5081a899fa79"
+  integrity sha512-g/n7vsSL7TMHXfTy4BAQUttF7aC7Ab0Oi2T0jV4eQeMN8941R/0A5eawuuqcFRg6xDXAv4ioBDzAbIr+2osVVA==
+  dependencies:
+    "@intlify/shared" "9.2.0-beta.19"
+    source-map "0.6.1"
+
+"@intlify/shared@9.2.0-beta.19":
+  version "9.2.0-beta.19"
+  resolved "https://registry.npmmirror.com/@intlify/shared/download/@intlify/shared-9.2.0-beta.19.tgz?cache=0&sync_timestamp=1637040069595&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40intlify%2Fshared%2Fdownload%2F%40intlify%2Fshared-9.2.0-beta.19.tgz#c415ec1f8935ec2cffe0c8909a56f27fe9ea2946"
+  integrity sha512-15nA6Vc1cBa3A5tu+YEsQHqL0NHhdKriF93IFVY7zNIH/uA23RSSDwl5XlQk5PmKLZ7KU0vjR0wevzRBVpg5/Q==
+
+"@intlify/vue-devtools@9.2.0-beta.19":
+  version "9.2.0-beta.19"
+  resolved "https://registry.npmmirror.com/@intlify/vue-devtools/download/@intlify/vue-devtools-9.2.0-beta.19.tgz#031250631b25a64b6955ac6e2a515c3d85749feb"
+  integrity sha512-/J5p2kwkQqqdn5tgF/Plpfx6c/C87stuEqbFNJFtvEpfYA+m8IdKlWmCaLe+EpLCFe0Sl8l7Ld0zsKixCb6+ZA==
+  dependencies:
+    "@intlify/core-base" "9.2.0-beta.19"
+    "@intlify/shared" "9.2.0-beta.19"
+
 "@jest/types@^26.6.2":
   version "26.6.2"
   resolved "https://registry.npmmirror.com/@jest/types/download/@jest/types-26.6.2.tgz#bef5a532030e1d88a2f5a6d933f84e97226ed48e"
@@ -573,6 +611,11 @@
   dependencies:
     "@vue/compiler-dom" "3.2.11"
     "@vue/shared" "3.2.11"
+
+"@vue/devtools-api@^6.0.0-beta.13":
+  version "6.0.0-beta.20.1"
+  resolved "https://registry.npmmirror.com/@vue/devtools-api/download/@vue/devtools-api-6.0.0-beta.20.1.tgz#5b499647e929c35baf2a66a399578f9aa4601142"
+  integrity sha512-R2rfiRY+kZugzWh9ZyITaovx+jpU4vgivAEAiz80kvh3yviiTU3CBuGuyWpSwGz9/C7TkSWVM/FtQRGlZ16n8Q==
 
 "@vue/devtools-api@^6.0.0-beta.18":
   version "6.0.0-beta.20"
@@ -3163,7 +3206,7 @@ source-map-support@^0.5.19:
     buffer-from "^1.0.0"
     source-map "^0.6.0"
 
-source-map@^0.6.0, source-map@^0.6.1:
+source-map@0.6.1, source-map@^0.6.0, source-map@^0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
@@ -3616,6 +3659,16 @@ vue-eslint-parser@^8.0.1:
     lodash "^4.17.21"
     semver "^7.3.5"
 
+vue-i18n@^9.2.0-beta.19:
+  version "9.2.0-beta.19"
+  resolved "https://registry.npmmirror.com/vue-i18n/download/vue-i18n-9.2.0-beta.19.tgz?cache=0&sync_timestamp=1637037965909&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fvue-i18n%2Fdownload%2Fvue-i18n-9.2.0-beta.19.tgz#6ffd3d46a43b16ebe4ab99c93b316e1d01216272"
+  integrity sha512-8MXwqpfS4hvtXI4D0U+SXxXYK+cZ8JcoOx3hVoelilRmnhCNH7hOJIun2sAOyDPp4giNguS7wVGk5f8j94lo/g==
+  dependencies:
+    "@intlify/core-base" "9.2.0-beta.19"
+    "@intlify/shared" "9.2.0-beta.19"
+    "@intlify/vue-devtools" "9.2.0-beta.19"
+    "@vue/devtools-api" "^6.0.0-beta.13"
+
 vue-router@4:
   version "4.0.12"
   resolved "https://registry.npmmirror.com/vue-router/download/vue-router-4.0.12.tgz#8dc792cddf5bb1abcc3908f9064136de7e13c460"
@@ -3643,6 +3696,11 @@ vueuc@^0.4.15:
     seemly "^0.3.1"
     vdirs "^0.1.4"
     vooks "^0.2.4"
+
+vuex@^3.6.2:
+  version "3.6.2"
+  resolved "https://registry.npmmirror.com/vuex/download/vuex-3.6.2.tgz#236bc086a870c3ae79946f107f16de59d5895e71"
+  integrity sha1-I2vAhqhww655lG8QfxbeWdWJXnE=
 
 wcwidth@^1.0.1:
   version "1.0.1"

@@ -1,6 +1,6 @@
 <template>
   <n-dropdown @select="handleSelect" v-model:show="showDropdown" trigger="hover" :options="options">
-    <n-button @click="hideAndCapture">截图</n-button>
+    <n-button @click="hideAndCapture">{{ $t('capture') }}</n-button>
   </n-dropdown>
 </template>
 

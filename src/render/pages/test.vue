@@ -4,15 +4,13 @@
 
 <script lang="ts">
 import CaptureButton from "@/render/components/CaptureButton.vue";
-
 export default {
-  name: "test",
-  components: {CaptureButton},
-  setup(){
-  }
-}
+  name: "TestWindow",
+  components: { CaptureButton },
+  setup() {
+    return {};
+  },
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
